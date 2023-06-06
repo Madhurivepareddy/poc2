@@ -52,10 +52,7 @@ package com.TestSapCrm.mavenproject;
 
 	import io.github.bonigarcia.wdm.WebDriverManager;
 
-	/**
-	 * Unit test for simple App.
-	 */
-	public class CrmMultiline {
+	public class CrmMultiline  extends ReusableScreenshot {
 	    WebDriver driver = null;
 	    WebElement Username;
 	    WebElement Password;
@@ -109,7 +106,7 @@ package com.TestSapCrm.mavenproject;
 	    @BeforeTest
 	    public void LaunchChromeBrowser() throws IOException {
 	        WebDriverManager.chromedriver().setup();
-	        // Open Chrome Browser
+	      
 	        ChromeOptions options = new ChromeOptions();
 	        options.addArguments("--remote-allow-origins=*");
 	        driver = new ChromeDriver(options);
@@ -135,8 +132,7 @@ package com.TestSapCrm.mavenproject;
 	        driver.findElement(By.xpath("//*[@id='logonuidfield']")).sendKeys(username);
 	        driver.findElement(By.xpath("//*[@id='logonpassfield']")).sendKeys(password);
 
-	        Thread.sleep(4000);// C:\Users\X0143783\OneDrive - Applied Materials\Documents\CRM
-	                           // app\democrm\src\test\java\com\crmproject\Screenshot
+	        Thread.sleep(4000);
 	                           reuse= new ReusableScreenshot();
 	                           reuse.captureScreenshot(ScreenshotNames[array_increment++]="Login Page", driver);
 	        Logon = driver.findElement(By.name("uidPasswordLogon"));
